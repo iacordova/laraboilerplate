@@ -1,18 +1,6 @@
 <?php
 
-class UserController extends \BaseController {
-
-	protected $user; 
-
-	/**
-	 * Constructor
-	 *
-	 * @return Response
-	 */
-	public function __construct(User $user)
-	{
-		$this->user = $user;
-	}
+class MainController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -21,9 +9,7 @@ class UserController extends \BaseController {
 	 */
 	public function index()
 	{
-		//show all available users
-		$users = $this->user->all();
-		return View::make('user.index')->with('users', $users);
+		return "Welcome " . Auth::user()->username;
 	}
 
 
@@ -34,7 +20,7 @@ class UserController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('user.create');
+		//
 	}
 
 
@@ -45,23 +31,7 @@ class UserController extends \BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::all();
-
-		$rules = array('username'=>'required|max:50', 'email'=>'unique:users,email', 'password'=>'required|max:50');
-		$validator = Validator::make(Input::all(), $rules);
-
-		if($validator->fails())
-		{
-			return Redirect::back()->withInput()->withErrors($validator);
-		}
-
-		$input['password'] = Hash::make($input['password']);
-
-		$this->user->fill($input);
-		$this->user->save();
-
-		return Redirect::route('user.index');
-
+		//
 	}
 
 
@@ -73,7 +43,7 @@ class UserController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return $this->user->find($id);
+		//
 	}
 
 

@@ -15,8 +15,9 @@ class AddFieldsToUsersTable extends Migration {
 		Schema::table('users', function(Blueprint $table)
 		{
 			$table->string('username', '50')->after('id');
-			$table->string('password', '50')->after('username');
+			$table->string('password', '100')->after('username');
 			$table->string('email')->after('password');
+			$table->rememberToken()->after('email');
 		});
 	}
 
