@@ -2,22 +2,30 @@
 
 @section('content')
 
-	<h1>Login</h1>
+	<div class="row">
 
-	{{ Form::open(array('route'=>'session.store')) }}
+		<div class="col-xs-4 col-xs-offset-4">
 
-	<p>
-		{{ Form::label('username','Username:') }}
-		{{ Form::text('username') }}
-	</p>
-	<p>
-		{{ Form::label('password', 'Password:') }}
-		{{ Form::password('password') }}
-	</p>	
-	<p>
-		{{ Form::submit('Submit') }}
-	</p>
+			<h1>Login</h1>
 
-	{{ Form::close() }}
+			{{ Form::open(array('route'=>'session.store')) }}
+
+			<p>
+				{{ Form::label('username','Username:') }}
+				{{ Form::text('username', null, ['class'=>'form-control']) }}
+			</p>
+			<p>
+				{{ Form::label('password', 'Password:') }}
+				{{ Form::password('password', ['class'=>'form-control']) }}
+			</p>	
+			<p>
+				{{ Form::submit('Submit', ['class'=>'btn btn-default']) }}
+			</p>
+
+			{{ Form::close() }}
+
+		</div>
+
+	</div>
 
 @stop

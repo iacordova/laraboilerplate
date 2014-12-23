@@ -4,38 +4,46 @@
 
 @section('content')
 
-	<h1>Users List</h1>
-	
-	@if($users->count() > 0)
+	<div class="row">
 
-		<table border="1">
+		<div class="col-xs-12">
 
-			<thead>
-				<tr>
-					<th>Username</th>
-					<th>Email</th>
-				</tr>
-			</thead>
+			<h1>Users List</h1>
+			
+			@if($users->count() > 0)
 
-			<tbody>
+				<table class="table table-bordered table-hover">
 
-			@foreach($users AS $user)
+					<thead>
+						<tr>
+							<th>Username</th>
+							<th>Email</th>
+						</tr>
+					</thead>
 
-				<tr>
-					<td>{{ link_to("user/{$user->id}", $user->username) }}</td>
-					<td>{{ $user->email }}</td>
-				</tr>
+					<tbody>
 
-			@endforeach
+					@foreach($users AS $user)
 
-			</tbody>
+						<tr>
+							<td>{{ link_to("user/{$user->id}", $user->username) }}</td>
+							<td>{{ $user->email }}</td>
+						</tr>
 
-		</table>
+					@endforeach
 
-	@else
+					</tbody>
 
-		<p>There is no users</p>
+				</table>
 
-	@endif
+			@else
+
+				<p>There is no users</p>
+
+			@endif
+
+		</div>
+
+	</div>
 
 @stop

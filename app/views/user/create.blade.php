@@ -3,31 +3,39 @@
 
 @section('content')
 
-	<h1>Create new user</h1>
+	<div class="row">
 
-	{{ Form::open(array('route'=>'user.store')) }}
+		<div class="col-xs-12">
 
-		<p>
-			{{ Form::label('username', 'Username:') }}
-			{{ Form::text('username') }}
-			{{ $errors->first('username') }}
-		</p>
+		<h1>Create new user</h1>
 
-		<p>
-			{{ Form::label('email', 'Email:') }}
-			{{ Form::email('email') }}
-			{{ $errors->first('email') }}
-		</p>
+			{{ Form::open(array('route'=>'user.store')) }}
 
-		<p>
-			{{ Form::label('password', 'Password:') }}
-			{{ Form::password('password') }}
-			{{ $errors->first('password') }}
-		</p>
+				<div class="form-group">
+					{{ Form::label('username', 'Username:') }}
+					{{ Form::text('username', null, ['class'=>'form-control']) }}
+					{{ $errors->first('username', '<p class="error">:message</p>') }}
+				</div>
 
-		<p>{{ Form::submit('Save') }}</p>
+				<div class="form-group">
+					{{ Form::label('email', 'Email:') }}
+					{{ Form::email('email', null, ['class'=>'form-control']) }}
+					{{ $errors->first('email', '<p class="error">:message</p>') }}
+				</div>
+
+				<div class="form-group">
+					{{ Form::label('password', 'Password:') }}
+					{{ Form::password('password', ['class'=>'form-control']) }}
+					{{ $errors->first('password', '<p class="error">:message</p>') }}
+				</div>
+
+				<p>{{ Form::submit('Save', ['class'=>'btn btn-default']) }}</p>
 
 
-	{{ Form::close() }}
+			{{ Form::close() }}
+
+		</div>
+
+	</div>
 
 @stop
