@@ -16,10 +16,13 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::resource('user', 'UserController');
 
 Route::resource('session', 'SessionController');
 Route::get('login', 'SessionController@create');
 Route::get('logout', 'SessionController@destroy');
 
-Route::get('main', 'MainController@index')->before('auth');
+Route::group(array('before'=>'auth'), function()
+{
+	Route::resource('user', 'UserController');
+	Route::get('main', 'MainController@index');
+});

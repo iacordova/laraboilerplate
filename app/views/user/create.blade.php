@@ -29,7 +29,7 @@
 					{{ $errors->first('password', '<p class="error">:message</p>') }}
 				</div>
 
-				<p>{{ Form::submit('Save', ['class'=>'btn btn-default']) }}</p>
+				<p>{{ Form::submit('Save', ['class'=>'btn btn-default']) }} {{ link_to_route('user.index', 'Cancel')}}</p>
 
 
 			{{ Form::close() }}

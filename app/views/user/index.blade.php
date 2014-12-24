@@ -10,6 +10,8 @@
 
 			<h1>Users List</h1>
 			
+			<p>{{ link_to('user/create', 'Create new user') }}</p>
+
 			@if($users->count() > 0)
 
 				<table class="table table-bordered table-hover">

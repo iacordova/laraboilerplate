@@ -22,7 +22,7 @@ class SessionController extends \BaseController {
 	{
 		if(Auth::check())
 		{
-			return Redirect::intended('main');
+			return Redirect::to('main');
 		}
 
 		return View::make('session.index');
@@ -39,7 +39,7 @@ class SessionController extends \BaseController {
 
 		if(Auth::attempt(Input::only('username', 'password')))
 		{
-			return Redirect::intended('main');
+			return Redirect::to('main');
 		}
 
 		return Redirect::back()->withInput();

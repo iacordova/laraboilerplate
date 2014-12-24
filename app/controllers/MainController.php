@@ -9,7 +9,7 @@ class MainController extends \BaseController {
 	 */
 	public function index()
 	{
-		return "Welcome " . Auth::user()->username;
+		//
 	}
 
 
