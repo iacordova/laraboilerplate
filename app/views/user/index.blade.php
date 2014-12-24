@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title') Users @stop
+@section('title') {{ Lang::get('user.title') }} @stop
 
 @section('content')
 
@@ -8,9 +8,9 @@
 
 		<div class="col-xs-12">
 
-			<h1>Users List</h1>
+			<h1>{{ Lang::get('user.users_list') }}</h1>
 			
-			<p>{{ link_to('user/create', 'Create new user') }}</p>
+			<p>{{ link_to_route('user.create', Lang::get('user.create_new')) }}</p>
 
 			@if($users->count() > 0)
 
@@ -18,8 +18,8 @@
 
 					<thead>
 						<tr>
-							<th>Username</th>
-							<th>Email</th>
+							<th>{{ Lang::get('user.username') }}</th>
+							<th>{{ Lang::get('user.email') }}</th>
 						</tr>
 					</thead>
 
@@ -40,7 +40,7 @@
 
 			@else
 
-				<p>There is no users</p>
+				<p>{{ Lang::get('empty_users') }}</p>
 
 			@endif
 
