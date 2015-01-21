@@ -4,9 +4,9 @@
 
 	<div class="row">
 
-		<div class="col-xs-4 col-xs-offset-4">
+		<div class="col-xs-12 col-md-4 col-md-offset-4">
 
-			<h1>Login</h1>
+			<h1>{{ Lang::get('default.login') }}</h1>
 
 			{{ Form::open(array('route'=>'session.store')) }}
 

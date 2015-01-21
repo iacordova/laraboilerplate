@@ -13,5 +13,8 @@ return array(
 
 	'cancel' => 'Cancel',
 
+	'login' => 'Ingresar',
+
+	'logout' => 'Cerrar sesión',
 
 );
